@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,16 +25,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('buy-product', [ProductsController::class, 'show'])->name('buyProduct');
+    Route::get('order-detail', [ProductsController::class, 'show'])->name('buyProduct');
 
-    // Route::post('pay-for-book', [PurchaseController::class, 'store'])->name('payForBook');
+    Route::post('confirm-order', [OrdersController::class, 'store'])->name('confirmOrder');
 
-    // Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchase-list');
-   
-    // Route::get('/delete-purcahse', [PurchaseController::class, 'destroy'])->name('delete-purchase');
+    Route::get('orders-list', [OrdersController::class, 'index'])->name('ordersList');
     
-    // Route::get('/view-profile', [UsersController::class, 'index'])->name('viewProfile');
-    // Route::post('/update-profile', [UsersController::class, 'update'])->name('updateProfile');
-    
+    Route::get('delete-order', [OrdersController::class, 'delete'])->name('deleteOrder');
 });
 
