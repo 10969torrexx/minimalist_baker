@@ -14,9 +14,6 @@
       <div class="col-lg-12">
         <ul id="portfolio-flters">
           <li data-filter="*" class="filter-active">All</li>
-          {{-- <li data-filter=".filter-app">App</li>
-          <li data-filter=".filter-card">Card</li>
-          <li data-filter=".filter-web">Web</li> --}}
           @foreach ($productsController->getProductTypes() as $item)
             <li data-filter=".filter-{{ $loop->iteration }}">{{ $item }}</li>
           @endforeach
@@ -33,8 +30,12 @@
               <div class="portfolio-info">
                 <h3><a href="{{ $item->image }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ ucwords($item->name) }}">{{ ucwords($item->name) }}</a></h3>
                 <div>
-                  <a href="{{ $item->image }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ ucwords($item->name) }}"><i class="bi bi-plus"></i></a>
-                  {{-- <a href="portfolio-details.html" title="Details"><i class="bi bi-link"></i></a> --}}
+                  @guest
+                    <a href="{{ $item->image }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ ucwords($item->name) }}"><i class="bi bi-plus"></i></a>
+
+                  @else
+                    <a href="{{ route('buyProduct', ['id' => $item->id]) }}" title="{{ ucwords($item->name) }}"><i class="bi bi-cart-fill"></i></a>
+                  @endguest
                 </div>
               </div>
             </div>
