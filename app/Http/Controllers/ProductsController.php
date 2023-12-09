@@ -36,9 +36,12 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+       $product = Products::where('id', $request->id)
+       ->first();
+
+       return view('pages.buy-product', compact('product'));
     }
 
     /**
