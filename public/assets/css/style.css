@@ -1046,3 +1046,15 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
+.card {
+  border: 0px !important;
+}
+
+.card-header {
+  background: #fff !important; 
+}
+
+.bg-color-1 {
+  background: #2D6760 !important;
+}
