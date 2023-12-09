@@ -24,14 +24,12 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-  <!-- =======================================================
-  * Template Name: Amoeba
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -48,11 +46,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link scrollto " href="/#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">About Us</a></li>
+          <li><a class="nav-link scrollto" href="/#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="/#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="/#contact">Contact Us</a></li>
           @guest
               <li class="dropdown"><a href="#"><strong>Get Started</strong> <i class="bi bi-chevron-down"></i></a>
                   <ul>
@@ -63,6 +61,7 @@
             @else
               <li class="dropdown"><a href="#"><strong>{{ Auth::user()->name }}</strong> <i class="bi bi-chevron-down"></i></a>
                   <ul>
+                    <li><a href="{{ route('ordersList') }}">Orders</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

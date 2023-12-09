@@ -30,7 +30,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
