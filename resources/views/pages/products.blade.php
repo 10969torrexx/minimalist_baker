@@ -27,7 +27,7 @@
     <div class="row portfolio-container">
       @if (count($productsController->index()) > 0)
         @foreach ($productsController->index() as $item)
-          <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->category }}">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->type }}">
             <div class="portfolio-wrap">
               <img src="{{ $item->image }}" class="img-fluid" alt="">
               <div class="portfolio-info">
