@@ -62,7 +62,7 @@
               <li class="dropdown"><a href="#"><strong>{{ Auth::user()->name }}</strong> <i class="bi bi-chevron-down"></i></a>
                   <ul>
                     <li><a href="{{ route('ordersList') }}">Orders</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="{{ route('userProfile') }}">Profile</a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                           @csrf

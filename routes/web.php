@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('orders-list', [OrdersController::class, 'index'])->name('ordersList');
     
     Route::get('delete-order', [OrdersController::class, 'delete'])->name('deleteOrder');
+
+    
+    Route::get('/user-profile', [UsersController::class, 'index'])->name('userProfile');
+
+    Route::post('/info-change', [UsersController::class, 'update'])->name('updateProfile');
 });
 
